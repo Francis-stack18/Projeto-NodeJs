@@ -1,42 +1,30 @@
-const http = require("http")
-const { json } = require("stream/consumers")
+const express = require("express")
+//const { json } = require("stream/consumers")
+let app = express()
+app.get("/", (red, res)=>{
 
-let server = http.createServer((red, res)=>{
+    res.statusCode = 200
+    res.setHeader("Content-Type", "text/html")
+    res.end("<h1>Olá</h1>")
 
-    console.log("URL", red.url)
-    console.log("METHOD", red.method)
+})
 
-    switch(red.url){
+app.get("/users", (req, res)=>{
 
-        case"/":
-
-            res.statusCode = 200
-            res.setHeader("Content-Type", "text/html")
-            res.end("<h1>Olá</h1>")
-
-        break;
-
-        case "/users":
-
-            res.statusCode = 200
+    res.statusCode = 200
             res.setHeader("Content-Type", "application/json")
-            res.end(JSON.stringify({
+            res.json({
 
                 users:[{
                     name:"Hcode",
                     email: "contato@hcode.com",
-                    id: 1
+                    id: 2
                 }]
 
-            }))
-
-        break;
-
-    }
+            })
 
 })
-
-server.listen(3000, "127.0.0.1", ()=>{
+app.listen(3000, "127.0.0.1", ()=>{
 
     console.log("Servidor rodando!")
 
