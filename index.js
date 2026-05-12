@@ -1,11 +1,38 @@
 const http = require("http")
+const { json } = require("stream/consumers")
 
 let server = http.createServer((red, res)=>{
 
     console.log("URL", red.url)
     console.log("METHOD", red.method)
 
-    res.end("Ok")
+    switch(red.url){
+
+        case"/":
+
+            res.statusCode = 200
+            res.setHeader("Content-Type", "text/html")
+            res.end("<h1>Olá</h1>")
+
+        break;
+
+        case "/users":
+
+            res.statusCode = 200
+            res.setHeader("Content-Type", "application/json")
+            res.end(JSON.stringify({
+
+                users:[{
+                    name:"Hcode",
+                    email: "contato@hcode.com",
+                    id: 1
+                }]
+
+            }))
+
+        break;
+
+    }
 
 })
 
