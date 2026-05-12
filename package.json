@@ -1,0 +1,23 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Francis-stack18/Projeto-NodeJs#readme",
+  "bugs": {
+    "url": "https://github.com/Francis-stack18/Projeto-NodeJs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Francis-stack18/Projeto-NodeJs.git"
+  },
+  "license": "ISC",
+  "author": "Francis W",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
