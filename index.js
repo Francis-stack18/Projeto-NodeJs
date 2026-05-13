@@ -1,12 +1,14 @@
-const express = require("express")
-const consign = require("consign")
+const express = require("express");
+const consign = require("consign");
+const bodyParser = require("body-parser");
 
-let app = express()
+let app = express();
 
-consign().include("routes").into(app)
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-app.listen(3000, "127.0.0.1", ()=>{
+consign().include("routes").into(app);
 
-    console.log("Servidor rodando!")
-
-})
+app.listen(3000, "127.0.0.1", () => {
+  console.log("Servidor rodando!");
+});
